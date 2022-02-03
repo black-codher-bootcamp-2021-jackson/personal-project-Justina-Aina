@@ -1,0 +1,8 @@
+use("journeyuser_db");
+
+db.journeyuser.drop();
+
+db.journeyuser.insertMany([ 
+    {},
+]);
+
