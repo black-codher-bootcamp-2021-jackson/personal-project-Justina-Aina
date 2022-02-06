@@ -1,8 +1,18 @@
 use("journeyuser_db");
 
 db.journeyuser.drop();
-
+// search functuion can call 1st nam rather than id. then call for the ids associated with name
 db.journeyuser.insertMany([ 
-    {},
+    {
+        "id":a,
+        "first_name": "Tammy",
+        "last_name": "Two-Toes",
+        "email_address": "t.t.t@test.com",
+        "image":,
+        "birthday": new Date("1994-03-03"),
+        "wants": [{"honesty", "goals", "friendship", "cheekiness"}],
+        "dont_wants":[{"lack_of_awareness"," laxidasical", "uncultured"}],
+        "entries":[1, 2, 3]
+    }
 ]);
 

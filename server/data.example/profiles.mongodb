@@ -9,11 +9,13 @@ db.profiles.drop();
 // Insert a few documents into the profiles collection.
 db.profiles.insertMany([  
     {
+        "id": 1,
         "first_name": "Efua",
         "last_name": "Akumanyi",
         "location": "London"
     },
     {
+        "id": 2,
         "first_name": "Gary",
         "last_name": "McPherson",
         "location": "London"
@@ -27,5 +29,7 @@ db.profiles.insertMany([
         "first_name": "Michael",
         "last_name": "Hael",
         "location": "Port Harcourt city"
+        "friends": [1, 2]
+        // schema is the description of what the database is 
     }
 ]);
