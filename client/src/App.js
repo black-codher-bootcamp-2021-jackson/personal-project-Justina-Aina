@@ -25,8 +25,20 @@ function App() {
               ${profile.last_name}`}
             </h3>
             <p>{`${profile.birthday}`}</p>
-            <p>{`${profile.wants}`}</p>
-            <p>{`${profile.dont_wants}`}</p>
+            <p>Wants</p>
+            <ol>
+              <li>{`${profile.wants[1]}`}</li>
+              <li>{`${profile.wants[2]}`}</li>
+              <li>{`${profile.wants[3]}`}</li>
+              <li>{`${profile.wants[4]}`}</li>
+            </ol>
+            <p>Don't want</p>            
+            <ol>
+              <li>{`${profile.dont_wants[1]}`}</li>
+              <li>{`${profile.dont_wants[2]}`}</li>
+              <li>{`${profile.dont_wants[3]}`}</li>
+              <li>{`${profile.dont_wants[4]}`}</li>
+            </ol>        
           </li>
         );
     };
