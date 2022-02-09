@@ -9,12 +9,6 @@ const journeyDataRoutes = (app) => {
 
         return res.status(200).send(userData);
     });
-
-    app.get(`/api/user-data/entrant-data`, async (req, res) => {
-        const entrantData = await EntrantData.find();
-
-        return res.status(200).send(entrantData);
-    });
 };
 
 module.exports = journeyDataRoutes;

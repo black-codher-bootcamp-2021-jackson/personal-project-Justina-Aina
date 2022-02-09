@@ -18,6 +18,8 @@ function App() {
     }, [users]);
 
     const renderUsers = (profile) => {
+        console.log(profile);
+        
         return (
           <li key={profile._id}>
             <h3>
