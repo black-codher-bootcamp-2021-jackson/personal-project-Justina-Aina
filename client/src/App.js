@@ -1,45 +1,48 @@
 import React, { useState, useEffect } from "react";
 
-// SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllProfiles } from "./services/profileService";
+import { getAllUserData } from "./services/journeyService";
 
 function App() {
-  const [profiles, setProfiles] = useState(null);
 
-  useEffect(() => {
-    async function getProfiles() {
-      if (!profiles) {
-        const response = await getAllProfiles();
-        setProfiles(response);
-      }
-    }
+    const [users, setUsers] = useState(null);
 
-    getProfiles();
-  }, [profiles]);
+    useEffect(() => {
+        async function getUsers() {
+          if (!users) {
+            const response = await getAllUserData();
+            setUsers(response);
+          }
+        }
+    
+        getUsers();
+    }, [users]);
 
-  const renderProfile = (user) => {
+    const renderUsers = (profile) => {
+        return (
+          <li key={profile._id}>
+            <h3>
+              {`${profile.first_name} 
+              ${profile.last_name}`}
+            </h3>
+            <p>{`${profile.birthday}`}</p>
+            <p>{`${profile.wants}`}</p>
+            <p>{`${profile.dont_wants}`}</p>
+          </li>
+        );
+    };
+
     return (
-      <li key={user._id}>
-        <h3>
-          {`${user.first_name} 
-          ${user.last_name}`}
-        </h3>
-        <p>{user.location}</p>
-      </li>
-    );
-  };
+        <div>
+          <ul>
+            {users && users.length > 0 ? (
+              users.map((user) => renderUsers(user))
+            ) : (
+              <p>No profiles found</p>
+            )}
+          </ul>
+        </div>
+      );
 
-  return (
-    <div>
-      <ul>
-        {profiles && profiles.length > 0 ? (
-          profiles.map((profile) => renderProfile(profile))
-        ) : (
-          <p>No profiles found</p>
-        )}
-      </ul>
-    </div>
-  );
 }
 
 export default App;
