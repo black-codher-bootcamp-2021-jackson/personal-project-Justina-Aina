@@ -19,7 +19,7 @@ function App() {
 
     const renderUsers = (profile) => {
         console.log(profile);
-        
+
         return (
           <li key={profile._id}>
             <h3>
@@ -51,7 +51,7 @@ function App() {
             {users && users.length > 0 ? (
               users.map((user) => renderUsers(user))
             ) : (
-              <p>No profiles found</p>
+              <p>No user found</p>
             )}
           </ul>
         </div>

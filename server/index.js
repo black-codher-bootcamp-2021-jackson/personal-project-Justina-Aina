@@ -7,7 +7,6 @@ const bodyParser = require("body-parser");
 // IMPORT YOUR SCHEMAS HERE
 // require("./models/Profiles"); //This is just an example. Don't forget to delete this
 require("./models/UserData");
-require("./models/EntrantData");
 
 const app = express();
 
