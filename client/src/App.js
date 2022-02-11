@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { getAllUserData } from "./services/journeyService";
+import { getAllUserData, createUser, deleteUser } from "./services/journeyService";
 
 function App() {
 
@@ -10,6 +10,8 @@ function App() {
         async function getUsers() {
           if (!users) {
             const response = await getAllUserData();
+            // await createUser({first_name: "Jane"});
+            // await deleteUser("620559616af2efcfd6eada69");
             setUsers(response);
           }
         }

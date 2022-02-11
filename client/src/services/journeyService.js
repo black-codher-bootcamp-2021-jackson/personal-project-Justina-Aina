@@ -1,4 +1,5 @@
 import axios from "axios";
+// import { response } from "express";
 
 const getAllUserData = async () => {
   const response = await axios.get(`/api/user-data`);
@@ -6,14 +7,23 @@ const getAllUserData = async () => {
   return response.data || [];
 };
 
-// NOT SURE HOW TO DO THIS 
-// const createUser = async () => {
-//   axios.post(`/api/user-data`, req.body)
-// }
+const createUser = async (newUser) => {
+  const response = await axios.post(`/api/user-data`, newUser);
 
-// const updateUser = async () => {
-//   axios.put(`/api/user-data`)
-// }
+  return response.data || [];
+};
+
+const updateUser = async (id) => {
+  const response = await axios.put(`/api/user-data/${id}`);
+
+  return response.data || [];
+};
+
+const deleteUser = async (id) => {
+  const response = await axios.delete(`/api/user-data/${id}`);
+
+  return response.data || [];
+};
 
 // All of the endpoints in this file can be exported below
-export { getAllUserData };
+export { getAllUserData, createUser, updateUser, deleteUser };
