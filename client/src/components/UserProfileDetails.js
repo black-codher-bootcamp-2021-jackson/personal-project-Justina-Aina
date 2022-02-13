@@ -1,43 +1,41 @@
 import React, { useState, useEffect, useCallback } from 'react';
 //import '../App.css';
-
-// import { getAllUserData } from "../services/journeyService";
+import SunSign from "./SunSign.js";
 
 const UserProfileDetails = (props) => {
-  const { getAllUserData, users, setUsers } = props;
-  
-  console.log(users);
+  const { users } = props;
 
-  const renderUsers = (profile) => {
-    console.log(profile);
+  const renderUsers = (singleUser) => {
+    console.log(singleUser);
 
     return (
       
-      <div id='UserProfileDetails' key={profile._id} >
+      <div id='UseruserDetails' key={singleUser._id} >
 
-        <h3 className='User-Name'>{`${profile.first_name} ${profile.last_name}`}</h3>
+        <h3 className='User-Name'>{`${singleUser.first_name} ${singleUser.last_name}`}</h3>
         
         <div className='User-Birthday'>
-          <p>{`${profile.birthday}`}</p>
+          <p>{`${singleUser.birthday}`}</p>
+          <SunSign birthday={props.birthday}/>
         </div>
           
         <div>
           <h4 className='User-Wants-Title'>Wants</h4>
           <ol className='User-Wants-Detail-box'>
-            <li className='User-Wants-Details'>{`${profile.wants[1]}`}</li>
-            <li className='User-Wants-Details'>{`${profile.wants[2]}`}</li>
-            <li className='User-Wants-Details'>{`${profile.wants[3]}`}</li>
-            <li className='User-Wants-Details'>{`${profile.wants[4]}`}</li>
+            <li className='User-Wants-Details'>{`${singleUser.wants[1]}`}</li>
+            <li className='User-Wants-Details'>{`${singleUser.wants[2]}`}</li>
+            <li className='User-Wants-Details'>{`${singleUser.wants[3]}`}</li>
+            <li className='User-Wants-Details'>{`${singleUser.wants[4]}`}</li>
           </ol>
         </div>
 
         <div>
           <h4 className='User-DontWants-Title'>Not Wanted</h4>
           <ol className='User-DontWants-Detail-box'>
-            <li className='User-DontWants-Details'>{`${profile.dont_wants[1]}`}</li>
-            <li className='User-DontWants-Details'>{`${profile.dont_wants[2]}`}</li>
-            <li className='User-DontWants-Details'>{`${profile.dont_wants[3]}`}</li>
-            <li className='User-DontWants-Details'>{`${profile.dont_wants[4]}`}</li>
+            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[1]}`}</li>
+            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[2]}`}</li>
+            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[3]}`}</li>
+            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[4]}`}</li>
           </ol>
         </div>
 
@@ -49,7 +47,7 @@ const UserProfileDetails = (props) => {
   return (
     <section>
       {users && users.length > 0 ? (
-        users.map((user) => renderUsers(user))
+        users.map((singleUser) => renderUsers(singleUser))
       ) : (
         <p>No user found</p>
       )}

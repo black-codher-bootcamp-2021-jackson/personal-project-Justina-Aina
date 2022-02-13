@@ -25,5 +25,11 @@ const deleteUser = async (id) => {
   return response.data || [];
 };
 
+const sunSign = async (sign, day) => {
+  const response = await axios.post(`https://aztro.sameerkumar.website?sign=${sign}&day=${day}`);
+
+  return response.data || [];
+};
+
 // All of the endpoints in this file can be exported below
-export { getAllUserData, createUser, updateUser, deleteUser };
+export { getAllUserData, createUser, updateUser, deleteUser, sunSign };
