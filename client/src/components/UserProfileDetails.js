@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 //import '../App.css';
 
-import { getAllUserData } from "./services/journeyService";
+import { getAllUserData } from "../services/journeyService";
 
-const userProfileDetails = () => {
-    
-  const [users, setUsers] = useState(null);
-    
-  // Line 12 - Calling getAllUserData from journeyService
+const UserProfileDetails = () => {
+  const [users, setUsers] = useState();
+  
+  console.log(users);
+
   useEffect(() => {
     async function getUsers() {
       if (!users) {
@@ -26,7 +26,7 @@ const userProfileDetails = () => {
 
     return (
       
-      <section id='UserProfileDetails' key={profile._id} >
+      <div id='UserProfileDetails' key={profile._id} >
 
         <h3 className='User-Name'>{`${profile.first_name} ${profile.last_name}`}</h3>
         
@@ -54,26 +54,24 @@ const userProfileDetails = () => {
           </ol>
         </div>
 
-      </section>
+      </div>
       
     );
   };
 
   return (
-    <div>
-      <ul>
-        {users && users.length > 0 ? (
-          users.map((user) => renderUsers(user))
-        ) : (
-          <p>No user found</p>
-        )}
-      </ul>
-    </div>
+    <section>
+      {users && users.length > 0 ? (
+        users.map((user) => renderUsers(user))
+      ) : (
+        <p>No user found</p>
+      )}
+    </section>
   );
 
-},
+}
 
-export default userProfileDetails;
+export default UserProfileDetails;
 
 
 // // app.delete("/rhymes/:id", (req, res) => {
