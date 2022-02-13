@@ -1,25 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
 //import '../App.css';
 
-import { getAllUserData } from "../services/journeyService";
+// import { getAllUserData } from "../services/journeyService";
 
-const UserProfileDetails = () => {
-  const [users, setUsers] = useState();
+const UserProfileDetails = (props) => {
+  const { getAllUserData, users, setUsers } = props;
   
   console.log(users);
-
-  useEffect(() => {
-    async function getUsers() {
-      if (!users) {
-        const response = await getAllUserData();
-        
-        setUsers(response);
-      }
-    }
-
-    getUsers();
-  }, [users]);
 
   const renderUsers = (profile) => {
     console.log(profile);

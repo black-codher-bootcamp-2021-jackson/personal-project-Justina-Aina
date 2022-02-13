@@ -24,7 +24,8 @@ app.use(bodyParser.json());
 // require("./routes/profilesRoutes")(app); 
 require("./routes/journeyDataRoutes")(app);
 
-const PORT = process.env.PORT;
+
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`API running on port ${PORT}`);
 });
