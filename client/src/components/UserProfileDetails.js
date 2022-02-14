@@ -16,7 +16,7 @@ const UserProfileDetails = (props) => {
         
         <div className='User-Birthday'>
           <p>{`${singleUser.birthday}`}</p>
-          <SunSign birthday={props.birthday}/>
+          <SunSign birthday={singleUser.birthday}/>
         </div>
           
         <div>

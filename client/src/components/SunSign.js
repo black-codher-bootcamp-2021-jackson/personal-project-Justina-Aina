@@ -5,18 +5,23 @@ import React, { useState, useEffect } from 'react';
 const SunSign = (props) => {
     const [day, setDay] = useState(null);
     //const [sign, setSign] = useState(null);
-    //const { birthday } = props;
+    const { birthday } = props;
     const today = new Date();
 
     useEffect(() => {
         setDay(today);
     }, []);
 
-    const birthdayDay = 19;
-    const birthdayMonth = "may";
+    // THIS DOESN'T YET WORK
+    // NEED TO FIGURE OUT HOW TO PULL DAY AND MONTH OUT OF THE BIRTHDAY OBJECT.
+    // MIGHT NEED TO RECONFIGURE INTO GMT FORMAT
+    const birthdayDay = birthday.toGMTString();
+    const birthdayMonth = birthday.getMonth();
+
+    console.log(birthdayDay);
+    //////////////////////////////////////////////////
 
     function zodiac_sign(birthdayDay, birthdayMonth){
-       
         if (birthdayMonth == "december"){
             var sun_sign_name = "";
 
@@ -105,7 +110,7 @@ const SunSign = (props) => {
         return sun_sign_name;
     };
     
-    console.log(zodiac_sign(birthdayDay, birthdayMonth));
+    // console.log(zodiac_sign(birthdayDay, birthdayMonth));
 
     return ( 
         <div>
