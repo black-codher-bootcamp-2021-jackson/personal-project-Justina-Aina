@@ -5,7 +5,7 @@ import SunSign from "./SunSign.js";
 const UserProfileDetails = (props) => {
   const { users } = props;
 
-  const renderUsers = (singleUser) => {
+  const renderUser = (singleUser) => {
     console.log(singleUser);
 
     return (
@@ -47,7 +47,7 @@ const UserProfileDetails = (props) => {
   return (
     <section>
       {users && users.length > 0 ? (
-        users.map((singleUser) => renderUsers(singleUser))
+        users.map((singleUser) => renderUser(singleUser))
       ) : (
         <p>No user found</p>
       )}
