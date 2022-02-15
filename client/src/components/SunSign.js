@@ -13,7 +13,7 @@ const SunSign = (props) => {
     const birthdayDay = birthdayConvert.getDate(); 
     const birthdayMonth = new Intl.DateTimeFormat('en-GB', { month : 'long'}).format(birthdayConvert).toLowerCase();
 
-    console.log("this is dailyhoroscope" + dailyHoroscope);
+    // console.log("this is dailyhoroscope" + dailyHoroscope);
     useEffect(() => {
         setDay(today);
         setSign(zodiacSign(birthdayDay, birthdayMonth));
@@ -26,8 +26,7 @@ const SunSign = (props) => {
             }
         }
         getDailyHoroscope();
-        // setDailyHoroscope(sunSignMessage("virgo", today))
-    }, [today, sign]);
+    }, [today, sign, birthdayDay, birthdayMonth]);
 
     // console.log(new Intl.DateTimeFormat('en-GB', { month : 'long'}).format(birthdayConvert).toLowerCase());
 

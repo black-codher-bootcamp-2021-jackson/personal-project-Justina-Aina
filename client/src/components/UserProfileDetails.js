@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 //import '../App.css';
 import SunSign from "./SunSign.js";
+import SexEdSearchBar from './SexEdSearchBar.js';
 
 const UserProfileDetails = (props) => {
   const { users } = props;
@@ -15,10 +16,12 @@ const UserProfileDetails = (props) => {
         <h3 className='User-Name'>{`${singleUser.first_name} ${singleUser.last_name}`}</h3>
         
         <div className='User-Birthday'>
-          <p>{`${singleUser.birthday}`}</p>
+          {/* <p>{`${singleUser.birthday}`}</p> */}
           <SunSign birthday={singleUser.birthday}/>
         </div>
           
+        <SexEdSearchBar />
+
         <div>
           <h4 className='User-Wants-Title'>Wants</h4>
           <ol className='User-Wants-Detail-box'>

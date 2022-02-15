@@ -28,11 +28,22 @@ const deleteUser = async (id) => {
 const sunSignMessage = async (sign, day) => {
   const response = await axios.post(`https://aztro.sameerkumar.website?sign=${sign}&day=${day}`);
 
-  console.log(response);
+  // console.log(response);
   return response.data.description || "";
+};
 
+const externalSearchFunction = async (term) => {
+  const response = await axios.get(`https://www.google.com/search?q=site%3Aschoolofsexed.org/blog-articles/+${term}`);
 
+  return response.data || "";
 };
 
 // All of the endpoints in this file can be exported below
-export { getAllUserData, createUser, updateUser, deleteUser, sunSignMessage };
+export { 
+  getAllUserData, 
+  createUser, 
+  updateUser, 
+  deleteUser, 
+  sunSignMessage, 
+  externalSearchFunction 
+};
