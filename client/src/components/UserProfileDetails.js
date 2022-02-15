@@ -5,13 +5,14 @@ import SexEdSearchBar from './SexEdSearchBar.js';
 
 const UserProfileDetails = (props) => {
   const { users } = props;
+  console.log(`this is in userprofiledetails ${users}`);
 
   const renderUser = (singleUser) => {
     console.log(singleUser);
 
     return (
       
-      <div id='UseruserDetails' key={singleUser._id} >
+      <div id='UserDetails' key={singleUser._id} >
 
         <h3 className='User-Name'>{`${singleUser.first_name} ${singleUser.last_name}`}</h3>
         

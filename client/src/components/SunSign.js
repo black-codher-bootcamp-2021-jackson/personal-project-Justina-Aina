@@ -120,8 +120,6 @@ const SunSign = (props) => {
         return sun_sign_name;
     };
 
-
-
     return ( 
         <div className='sunsign-container'>
             <h4>Sun Sign</h4> 
