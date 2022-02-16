@@ -5,7 +5,58 @@ import SexEdSearchBar from './SexEdSearchBar.js';
 
 const UserProfileDetails = (props) => {
   const { users } = props;
-  console.log(`this is in userprofiledetails ${users}`);
+  
+//   const renderUser = (singleUser) => {
+//     console.log(singleUser);
+
+//     return (
+      
+//       <div id='UserDetails' key={singleUser._id} >
+
+//         <h3 className='User-Name'>{`${singleUser.first_name} ${singleUser.last_name}`}</h3>
+        
+//         <div className='User-Birthday'>
+//           {/* <p>{`${singleUser.birthday}`}</p> */}
+//           <SunSign birthday={singleUser.birthday}/>
+//         </div>
+          
+//         <SexEdSearchBar />
+
+//         <div>
+//           <h4 className='User-Wants-Title'>Wants</h4>
+//           <ol className='User-Wants-Detail-box'>
+//             <li className='User-Wants-Details'>{`${singleUser.wants[1]}`}</li>
+//             <li className='User-Wants-Details'>{`${singleUser.wants[2]}`}</li>
+//             <li className='User-Wants-Details'>{`${singleUser.wants[3]}`}</li>
+//             <li className='User-Wants-Details'>{`${singleUser.wants[4]}`}</li>
+//           </ol>
+//         </div>
+
+//         <div>
+//           <h4 className='User-DontWants-Title'>Not Wanted</h4>
+//           <ol className='User-DontWants-Detail-box'>
+//             <li className='User-DontWants-Details'>{`${singleUser.dont_wants[1]}`}</li>
+//             <li className='User-DontWants-Details'>{`${singleUser.dont_wants[2]}`}</li>
+//             <li className='User-DontWants-Details'>{`${singleUser.dont_wants[3]}`}</li>
+//             <li className='User-DontWants-Details'>{`${singleUser.dont_wants[4]}`}</li>
+//           </ol>
+//         </div>
+
+//       </div>
+      
+//     );
+//   };
+
+//   return (
+//     <section>
+//       {users && users.length > 0 ? (
+//         users.map((singleUser) => renderUser(singleUser))
+//       ) : (
+//         <p>No user found</p>
+//       )}
+//     </section>
+//   );
+// }
 
   const renderUser = (singleUser) => {
     console.log(singleUser);
@@ -57,8 +108,8 @@ const UserProfileDetails = (props) => {
       )}
     </section>
   );
-
 }
+
 
 export default UserProfileDetails;
 
