@@ -5,7 +5,88 @@ import SexEdSearchBar from './SexEdSearchBar.js';
 
 const UserProfileDetails = (props) => {
   const { users } = props;
+  console.log('Type of users', typeof users);
+  console.log('Props', props);
   
+  const search = {_id:"62055cfa2c89cf49b4dbe8f1"};
+
+  //////////////////////////////////////////////////////////////
+  // const singleUser = users.find(user => user._id === search._id);
+  /////////////////////////////////////////////////////////////////
+  // const singleUser = users._id.find(({_id}) => _id === search);
+  /////////////////////////////////////////////////////////////////
+  // const singleUser = users.find(
+  //     function(user) {
+  //     if (user === this._id) return true;
+  //   }, search
+  // );
+  ///////////////////////////////////////////////////////////////////
+  // const singleUser = users.find(user => {
+  //   if (users._id === user) return true;
+  // });
+/////////////////////////////////////////////////////////////////////
+  // const array = ["justina", "tanya"];
+  // const findJustina = array.find(item => item === "justina");
+
+//   console.log(`this is the specific id from UserProfileDetails ${singleUser}`);
+
+
+  const renderUser = (singleUser) => {
+    console.log(singleUser);
+
+    return (
+      
+      <div id='UserDetails' key={singleUser._id} >
+
+        <h3 className='User-Name'>{`${singleUser.first_name} ${singleUser.last_name}`}</h3>
+        
+        <div className='User-Birthday'>
+          {/* <p>{`${singleUser.birthday}`}</p> */}
+          <SunSign birthday={singleUser.birthday}/>
+        </div>
+          
+        <SexEdSearchBar />
+
+        <div>
+          <h4 className='User-Wants-Title'>Wants</h4>
+          <ol className='User-Wants-Detail-box'>
+            <li className='User-Wants-Details'>{`${singleUser.wants[1]}`}</li>
+            <li className='User-Wants-Details'>{`${singleUser.wants[2]}`}</li>
+            <li className='User-Wants-Details'>{`${singleUser.wants[3]}`}</li>
+            <li className='User-Wants-Details'>{`${singleUser.wants[4]}`}</li>
+          </ol>
+        </div>
+
+        <div>
+          <h4 className='User-DontWants-Title'>Not Wanted</h4>
+          <ol className='User-DontWants-Detail-box'>
+            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[1]}`}</li>
+            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[2]}`}</li>
+            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[3]}`}</li>
+            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[4]}`}</li>
+          </ol>
+        </div>
+
+      </div>
+      
+    );
+  };
+  // const singleUser = users._id.find(({_id}) => _id === search);
+  return (
+    <section>
+      {users && users.length > 0 ? (
+        users.map((singleUser) => renderUser(singleUser))
+      ) : (
+        <p>No user found</p>
+      )}
+    </section>
+  );
+}
+
+  
+
+
+//////////////////////////////////////////////////////////////
 //   const renderUser = (singleUser) => {
 //     console.log(singleUser);
 
@@ -57,59 +138,7 @@ const UserProfileDetails = (props) => {
 //     </section>
 //   );
 // }
-
-  const renderUser = (singleUser) => {
-    console.log(singleUser);
-
-    return (
-      
-      <div id='UserDetails' key={singleUser._id} >
-
-        <h3 className='User-Name'>{`${singleUser.first_name} ${singleUser.last_name}`}</h3>
-        
-        <div className='User-Birthday'>
-          {/* <p>{`${singleUser.birthday}`}</p> */}
-          <SunSign birthday={singleUser.birthday}/>
-        </div>
-          
-        <SexEdSearchBar />
-
-        <div>
-          <h4 className='User-Wants-Title'>Wants</h4>
-          <ol className='User-Wants-Detail-box'>
-            <li className='User-Wants-Details'>{`${singleUser.wants[1]}`}</li>
-            <li className='User-Wants-Details'>{`${singleUser.wants[2]}`}</li>
-            <li className='User-Wants-Details'>{`${singleUser.wants[3]}`}</li>
-            <li className='User-Wants-Details'>{`${singleUser.wants[4]}`}</li>
-          </ol>
-        </div>
-
-        <div>
-          <h4 className='User-DontWants-Title'>Not Wanted</h4>
-          <ol className='User-DontWants-Detail-box'>
-            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[1]}`}</li>
-            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[2]}`}</li>
-            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[3]}`}</li>
-            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[4]}`}</li>
-          </ol>
-        </div>
-
-      </div>
-      
-    );
-  };
-
-  return (
-    <section>
-      {users && users.length > 0 ? (
-        users.map((singleUser) => renderUser(singleUser))
-      ) : (
-        <p>No user found</p>
-      )}
-    </section>
-  );
-}
-
+  
 
 export default UserProfileDetails;
 

@@ -11,8 +11,25 @@ function App() {
   const [entries, setEntries] = useState(null);
   
   // console.log(`this is the APP ${entries}`);
-  
-  // Calls the getUser function from the api
+
+  // // Calls the getUser function from the api
+  //   const getUsers = async () => {
+  //     // existing function body
+  //     if (!users || !entries ) {
+  //       const response = await getAllUserData();
+  //       //console.log(response);
+  //       setUsers(response);  
+  //       setEntries(response[0].entries);
+  //     }
+  //   };
+    
+  //   useEffect(() => {
+  //     getUsers();
+  //   });
+
+
+////////////////////////////////////////////////////
+  //Calls the getUser function from the api
   useEffect(() => {
     async function getUsers() {
       if (!users || !entries ) {
@@ -25,11 +42,6 @@ function App() {
     }
     getUsers();
   });
-
-
-
-  // setEntrants(users.entries);
-  
 
   return (
     <BrowserRouter>
