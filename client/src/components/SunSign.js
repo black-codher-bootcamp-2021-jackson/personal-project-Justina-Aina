@@ -36,21 +36,21 @@ const SunSign = (props) => {
         if (birthdayMonth === "december"){
 
             if (birthdayDay < 22)
-            sun_sign_name = "Sagittarius";
+            sun_sign_name = "sagittarius";
             else
             sun_sign_name ="capricorn";
         }
             
         else if (birthdayMonth === "january"){
             if (birthdayDay < 20)
-            sun_sign_name = "Capricorn";
+            sun_sign_name = "capricorn";
             else
             sun_sign_name = "aquarius";
         }
             
         else if (birthdayMonth === "february"){
             if (birthdayDay < 19)
-            sun_sign_name = "Aquarius";
+            sun_sign_name = "aquarius";
             else
             sun_sign_name = "pisces";
         }

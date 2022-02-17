@@ -2,14 +2,30 @@ import React, { useState, useEffect, useCallback } from 'react';
 //import '../App.css';
 import SunSign from "./SunSign.js";
 import SexEdSearchBar from './SexEdSearchBar.js';
+import { getAllUserData } from "../services/journeyService";
 
 const UserProfileDetails = (props) => {
-  const { users } = props;
-  console.log('Type of users', typeof users);
-  console.log('Props', props);
+  const [users, setUsers] = useState(null);
+  //const { users, setUsers } = props;
+  // console.log('Type of users', typeof users);
+  // console.log('Props', props);
   
-  const search = {_id:"62055cfa2c89cf49b4dbe8f1"};
+  const search = {_id:"62055cfa2c89cf49b4dbe8f0"};
 
+  useEffect(() => {
+    async function getUsers() {
+      if (!users) {
+        const response = await getAllUserData();
+
+        //console.log(response);
+        setUsers(response);  
+        
+      }
+    }
+    getUsers();
+  });
+
+  
   //////////////////////////////////////////////////////////////
   // const singleUser = users.find(user => user._id === search._id);
   /////////////////////////////////////////////////////////////////
@@ -71,11 +87,12 @@ const UserProfileDetails = (props) => {
       
     );
   };
-  // const singleUser = users._id.find(({_id}) => _id === search);
+  const singleUser = users && users.find(user => user._id === search._id);
+  
   return (
     <section>
-      {users && users.length > 0 ? (
-        users.map((singleUser) => renderUser(singleUser))
+      {singleUser ? (
+        renderUser(singleUser)
       ) : (
         <p>No user found</p>
       )}

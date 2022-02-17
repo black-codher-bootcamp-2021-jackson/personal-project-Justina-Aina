@@ -1,9 +1,25 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { getAllUserData } from "../services/journeyService";
 //import '../App.css';
 // import SunSign from "./SunSign.js";
 
 const EntrantProfileDetails = (props) => {
-  const { users } = props;
+  // const { users } = props;
+  const [entries, setEntries] = useState(null);
+
+  useEffect(() => {
+    async function getUsers() {
+      if (!entries ) {
+        const response = await getAllUserData();
+        console.log(response);
+        //console.log(response);        
+        setEntries(response[1].entries);
+      }
+    }
+    getUsers();
+  });
+
+
 
   const renderUser = (singleUser) => {
     console.log(singleUser);
@@ -47,8 +63,8 @@ const EntrantProfileDetails = (props) => {
 
   return (
     <section>
-      {users && users.length > 0 ? (
-        users.map((singleUser) => renderUser(singleUser))
+      {entries && entries.length > 0 ? (
+        entries.map((singleUser) => renderUser(singleUser))
       ) : (
         <p>No user found</p>
       )}

@@ -32,6 +32,8 @@ const sunSignMessage = async (sign, day) => {
   return response.data.description || "";
 };
 
+
+// CORS error preventing this function from working in the app - it works from a client browser
 const externalSearchFunction = async (term) => {
   const response = await axios.get(`https://www.google.com/search?q=site%3Aschoolofsexed.org/blog-articles/+${term}`);
 
