@@ -7,6 +7,12 @@ const getAllUserData = async () => {
   return response.data || [];
 };
 
+const getSingleUser = async (id) => {
+  const response = await axios.get(`/api/user-data/${id}`);
+
+  return response.data || [];
+};
+
 const createUser = async (newUser) => {
   const response = await axios.post(`/api/user-data`, newUser);
 

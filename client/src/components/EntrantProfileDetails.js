@@ -7,13 +7,16 @@ const EntrantProfileDetails = (props) => {
   // const { users } = props;
   const [entries, setEntries] = useState(null);
 
+
+  ////////////////////////////////////////////////////
+  //Calls the getUser function from the api
   useEffect(() => {
     async function getUsers() {
       if (!entries ) {
         const response = await getAllUserData();
         console.log(response);
         //console.log(response);        
-        setEntries(response[1].entries);
+        setEntries(response[0].entries);
       }
     }
     getUsers();

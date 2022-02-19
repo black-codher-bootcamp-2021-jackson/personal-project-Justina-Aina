@@ -3,15 +3,19 @@ import React, { useState, useEffect, useCallback } from 'react';
 import SunSign from "./SunSign.js";
 import SexEdSearchBar from './SexEdSearchBar.js';
 import { getAllUserData } from "../services/journeyService";
+import { set } from 'mongoose';
 
 const UserProfileDetails = (props) => {
   const [users, setUsers] = useState(null);
+  const [user, setUser] = useState(null);
   //const { users, setUsers } = props;
   // console.log('Type of users', typeof users);
   // console.log('Props', props);
   
-  const search = {_id:"62055cfa2c89cf49b4dbe8f0"};
-
+  const logIn = {_id:"62055cfa2c89cf49b4dbe8f1"};
+  ////////////////////////////////////////////////////
+  //Calls the getUser function from the api
+  
   useEffect(() => {
     async function getUsers() {
       if (!users) {
@@ -19,33 +23,26 @@ const UserProfileDetails = (props) => {
 
         //console.log(response);
         setUsers(response);  
-        
+        setUser(response.find(user => user._id === logIn._id));
       }
     }
     getUsers();
   });
 
-  
-  //////////////////////////////////////////////////////////////
-  // const singleUser = users.find(user => user._id === search._id);
-  /////////////////////////////////////////////////////////////////
-  // const singleUser = users._id.find(({_id}) => _id === search);
-  /////////////////////////////////////////////////////////////////
-  // const singleUser = users.find(
-  //     function(user) {
-  //     if (user === this._id) return true;
-  //   }, search
-  // );
-  ///////////////////////////////////////////////////////////////////
-  // const singleUser = users.find(user => {
-  //   if (users._id === user) return true;
-  // });
-/////////////////////////////////////////////////////////////////////
-  // const array = ["justina", "tanya"];
-  // const findJustina = array.find(item => item === "justina");
+  ///////////////////////////
+  //function to update info in already created users and entrants
+  const updateUserList = (value, list, listNumber) => {
+    console.log(value, list, listNumber);
+    setUser({...user, [list]: {...user[list], [listNumber]: value}})
+  };
 
-//   console.log(`this is the specific id from UserProfileDetails ${singleUser}`);
+  //////
+  //possibly use useEffect to push updated infor to mongo. 
+  //I want the saving to happen separate to the change input
+  // save after every 5 seconds timer and if no changes the push update to mongo
 
+  // a function to listen for selection (onFocus), then listen for deselection (onBlur). 
+  // if the value has changed onBlur, push update to mongo
 
   const renderUser = (singleUser) => {
     console.log(singleUser);
@@ -66,7 +63,14 @@ const UserProfileDetails = (props) => {
         <div>
           <h4 className='User-Wants-Title'>Wants</h4>
           <ol className='User-Wants-Detail-box'>
-            <li className='User-Wants-Details'>{`${singleUser.wants[1]}`}</li>
+            <li className='User-Wants-Details'>
+              <input 
+                type="text" 
+                value={`${singleUser.wants[1]}`} 
+                onChange={(e) => {updateUserList(e.target.value, "wants", 1)}}
+              >
+              </input>
+            </li>
             <li className='User-Wants-Details'>{`${singleUser.wants[2]}`}</li>
             <li className='User-Wants-Details'>{`${singleUser.wants[3]}`}</li>
             <li className='User-Wants-Details'>{`${singleUser.wants[4]}`}</li>
@@ -87,12 +91,12 @@ const UserProfileDetails = (props) => {
       
     );
   };
-  const singleUser = users && users.find(user => user._id === search._id);
+  // const singleUser = users && users.find(user => user._id === logIn._id);
   
   return (
     <section>
-      {singleUser ? (
-        renderUser(singleUser)
+      {user ? (
+        renderUser(user)
       ) : (
         <p>No user found</p>
       )}
@@ -100,7 +104,7 @@ const UserProfileDetails = (props) => {
   );
 }
 
-  
+export default UserProfileDetails; 
 
 
 //////////////////////////////////////////////////////////////
@@ -156,8 +160,8 @@ const UserProfileDetails = (props) => {
 //   );
 // }
   
+/////////////////////////////////////////////////////////////////////
 
-export default UserProfileDetails;
 
 
 // // app.delete("/rhymes/:id", (req, res) => {
