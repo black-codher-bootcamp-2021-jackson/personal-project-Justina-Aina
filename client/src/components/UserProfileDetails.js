@@ -8,11 +8,12 @@ import { set } from 'mongoose';
 const UserProfileDetails = (props) => {
   const [users, setUsers] = useState(null);
   const [user, setUser] = useState(null);
+  const [hasSubmitted, setSubmitted] = useState(false);
   //const { users, setUsers } = props;
   // console.log('Type of users', typeof users);
   // console.log('Props', props);
   
-  const logIn = {_id:"62055cfa2c89cf49b4dbe8f1"};
+  const loggedInUser = {_id:"62055cfa2c89cf49b4dbe8f1"};
   ////////////////////////////////////////////////////
   //Calls the getUser function from the api
   
@@ -23,7 +24,7 @@ const UserProfileDetails = (props) => {
 
         //console.log(response);
         setUsers(response);  
-        setUser(response.find(user => user._id === logIn._id));
+        setUser(response.find(user => user._id === loggedInUser._id));
       }
     }
     getUsers();
@@ -67,23 +68,64 @@ const UserProfileDetails = (props) => {
               <input 
                 type="text" 
                 value={`${singleUser.wants[1]}`} 
-                onChange={(e) => {updateUserList(e.target.value, "wants", 1)}}
-              >
-              </input>
+                onChange={(e) => {updateUserList(e.target.value, "wants", 1)}}            
+              />
             </li>
-            <li className='User-Wants-Details'>{`${singleUser.wants[2]}`}</li>
-            <li className='User-Wants-Details'>{`${singleUser.wants[3]}`}</li>
-            <li className='User-Wants-Details'>{`${singleUser.wants[4]}`}</li>
+            <li className='User-Wants-Details'>
+              <input 
+                type="text" 
+                value={`${singleUser.wants[2]}`} 
+                onChange={(e) => {updateUserList(e.target.value, "wants", 2)}}            
+              />
+            </li>
+            <li className='User-Wants-Details'>          
+              <input 
+                type="text" 
+                value={`${singleUser.wants[3]}`} 
+                onChange={(e) => {updateUserList(e.target.value, "wants", 3)}}            
+              />
+            </li>
+            <li className='User-Wants-Details'>            
+              <input 
+                type="text" 
+                value={`${singleUser.wants[4]}`} 
+                onChange={(e) => {updateUserList(e.target.value, "wants", 4)}}            
+              />
+            </li>
           </ol>
         </div>
 
         <div>
           <h4 className='User-DontWants-Title'>Not Wanted</h4>
           <ol className='User-DontWants-Detail-box'>
-            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[1]}`}</li>
-            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[2]}`}</li>
-            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[3]}`}</li>
-            <li className='User-DontWants-Details'>{`${singleUser.dont_wants[4]}`}</li>
+            <li className='User-DontWants-Details'>
+              <input 
+                type="text" 
+                value={`${singleUser.dont_wants[1]}`} 
+                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 1)}}            
+              />
+            </li>
+            <li className='User-DontWants-Details'>
+              <input 
+                type="text" 
+                value={`${singleUser.dont_wants[2]}`} 
+                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 2)}}            
+              />
+            </li>
+            <li className='User-DontWants-Details'>          
+              <input 
+                type="text" 
+                value={`${singleUser.dont_wants[3]}`} 
+                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 3)}}            
+              />
+            </li>
+            <li className='User-DontWants-Details'>          
+              <input 
+                type="text" 
+                value={`${singleUser.dont_wants[4]}`} 
+                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 4)}}            
+              />
+            </li>
           </ol>
         </div>
 
