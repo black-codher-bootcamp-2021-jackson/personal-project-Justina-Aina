@@ -11,7 +11,7 @@ const SunSign = (props) => {
     
     const birthdayConvert = new Date(birthday);
     const birthdayDay = birthdayConvert.getDate(); 
-    const birthdayMonth = new Intl.DateTimeFormat('en-GB', { month : 'long'}).format(birthdayConvert).toLowerCase();
+    const birthdayMonth = new Intl.DateTimeFormat('en-GB', { month : 'long'}).format(birthdayConvert);
 
     // console.log("this is dailyhoroscope" + dailyHoroscope);
     useEffect(() => {
@@ -33,88 +33,88 @@ const SunSign = (props) => {
     const zodiacSign = (birthdayDay, birthdayMonth) => {
         let sun_sign_name = "";
 
-        if (birthdayMonth === "december"){
+        if (birthdayMonth === "December"){
 
             if (birthdayDay < 22)
-            sun_sign_name = "sagittarius";
+            sun_sign_name = "Sagittarius";
             else
-            sun_sign_name ="capricorn";
+            sun_sign_name ="Capricorn";
         }
             
-        else if (birthdayMonth === "january"){
+        else if (birthdayMonth === "January"){
             if (birthdayDay < 20)
-            sun_sign_name = "capricorn";
+            sun_sign_name = "Capricorn";
             else
-            sun_sign_name = "aquarius";
+            sun_sign_name = "Aquarius";
         }
             
-        else if (birthdayMonth === "february"){
+        else if (birthdayMonth === "February"){
             if (birthdayDay < 19)
-            sun_sign_name = "aquarius";
+            sun_sign_name = "Aquarius";
             else
-            sun_sign_name = "pisces";
+            sun_sign_name = "Pisces";
         }
             
-        else if(birthdayMonth === "march"){
+        else if(birthdayMonth === "March"){
             if (birthdayDay < 21)
             sun_sign_name = "Pisces";
             else
-            sun_sign_name = "aries";
+            sun_sign_name = "Aries";
         }
-        else if (birthdayMonth === "april"){
+        else if (birthdayMonth === "April"){
             if (birthdayDay < 20)
             sun_sign_name = "Aries";
             else
-            sun_sign_name = "taurus";
+            sun_sign_name = "Taurus";
         }
             
-        else if (birthdayMonth === "may"){
+        else if (birthdayMonth === "May"){
             if (birthdayDay < 21)
             sun_sign_name = "Taurus";
             else
-            sun_sign_name = "gemini";
+            sun_sign_name = "Gemini";
         }
             
-        else if( birthdayMonth === "june"){
+        else if( birthdayMonth === "June"){
             if (birthdayDay < 21)
             sun_sign_name = "Gemini";
             else
-            sun_sign_name = "cancer";
+            sun_sign_name = "Cancer";
         }
             
-        else if (birthdayMonth === "july"){
+        else if (birthdayMonth === "July"){
             if (birthdayDay < 23)
             sun_sign_name = "Cancer";
             else
-            sun_sign_name = "leo";
+            sun_sign_name = "Leo";
         }
             
-        else if( birthdayMonth === "august"){
+        else if( birthdayMonth === "August"){
             if (birthdayDay < 23)
             sun_sign_name = "Leo";
             else
-            sun_sign_name = "virgo";
+            sun_sign_name = "Virgo";
         }
             
-        else if (birthdayMonth === "september"){
+        else if (birthdayMonth === "September"){
             if (birthdayDay < 23)
             sun_sign_name = "Virgo";
             else
-            sun_sign_name = "libra";
+            sun_sign_name = "Libra";
         }
             
-        else if (birthdayMonth === "october"){
+        else if (birthdayMonth === "October"){
             if (birthdayDay < 23)
             sun_sign_name = "Libra";
             else
-            sun_sign_name = "scorpio";
+            sun_sign_name = "Scorpio";
         }
             
-        else if (birthdayMonth === "november"){
+        else if (birthdayMonth === "November"){
             if (birthdayDay < 22)
-            sun_sign_name = "scorpio";
+            sun_sign_name = "Scorpio";
             else
-            sun_sign_name = "sagittarius";
+            sun_sign_name = "Sagittarius";
         };
 
         return sun_sign_name;
@@ -122,8 +122,8 @@ const SunSign = (props) => {
 
     return ( 
         <div className='sunsign-container'>
-            <h4>Sun Sign</h4> 
-            <h5>{sign}</h5>
+            <h4>Sun Sign: {sign}</h4> 
+            <p>Birthday: {birthdayDay} {birthdayMonth}</p>
             <p>{dailyHoroscope}</p>
         </div> 
     )
