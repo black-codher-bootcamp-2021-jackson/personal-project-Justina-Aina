@@ -19,8 +19,8 @@ const createUser = async (newUser) => {
   return response.data || [];
 };
 
-const updateUser = async (id) => {
-  const response = await axios.put(`/api/user-data/${id}`);
+const updateUser = async (id, body) => {
+  const response = await axios.put(`/api/user-data/${id}`, body);
 
   return response.data || [];
 };
@@ -49,6 +49,7 @@ const externalSearchFunction = async (term) => {
 // All of the endpoints in this file can be exported below
 export { 
   getAllUserData, 
+  getSingleUser,
   createUser, 
   updateUser, 
   deleteUser, 

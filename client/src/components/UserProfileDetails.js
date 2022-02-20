@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-//import '../App.css';
+// import '../App.css';
 import SunSign from "./SunSign.js";
-import SexEdSearchBar from './SexEdSearchBar.js';
+// import SexEdSearchBar from './SexEdSearchBar.js';
 import { getAllUserData, updateUser } from "../services/journeyService";
 
 const UserProfileDetails = (props) => {
@@ -14,8 +14,7 @@ const UserProfileDetails = (props) => {
   
   const loggedInUser = {_id:"62055cfa2c89cf49b4dbe8f1"};
   ////////////////////////////////////////////////////
-  //Calls the getUser function from the api
-  
+  //Calls the getUser function from the app
   useEffect(() => {
     async function getUsers() {
       if (!users) {
@@ -32,35 +31,18 @@ const UserProfileDetails = (props) => {
   ///////////////////////////
   //function to update info in already created users and entrants
   const updateUserList = ( value, list, listNumber) => {
-    console.log(`onBlur function ${value, list, listNumber}`);
-    // e.preventDefault();
+    console.log(`set user function ${value}, ${list}, ${listNumber}`);
     setUser({...user, [list]: {...user[list], [listNumber]: value}});
-    // setSubmitted(false); 
-    
-    ///////////////////////////////////////////////
-    // this isnt how this works. Look into .PUT requests in node
-    // async function updateUserClient() {
-    //   if (!users) {
-    //     const response = await updateUser();
-
-    //     //console.log(response);
-    //     setUsers(response);  
-    //     setUser(response.find(user => user._id === loggedInUser._id));
-    //   }
-    // }
-    // updateUserClient();
-    ///////////////////////////////////////////////////
-    //   function onDeleteClick (loggedInUser) {
-    //       const response = await updateUser(loggedInUser);
-    //       .then(res => {
-    //         this.props.history.push(`/api/user-data/${loggedInUser}`);
-    //       })
-    //       .catch(err => {
-    //         console.log("Error form UserProfileDetails_updateFunction");
-    //       })
-    //   };
-    /////////////////////////////////////////////////////
   }; 
+
+  const fireUpdate = () =>{
+    const target = document.activeElement;
+
+    console.log(`on blur ${target}`);
+    console.log(user);
+    updateUser(user._id, user);
+    //console.log(`user updated ${user}`);
+  };
 
 //   const handleBlur = (e) => {    
 //     e.preventDefault();    
@@ -81,7 +63,7 @@ const UserProfileDetails = (props) => {
   // if the value has changed onBlur, push update to mongo
 
   const renderUser = (singleUser) => {
-    console.log(singleUser);
+    // console.log(singleUser);
 
     return (
       
@@ -94,7 +76,7 @@ const UserProfileDetails = (props) => {
           <SunSign birthday={singleUser.birthday}/>
         </div>
           
-        <SexEdSearchBar />
+        {/* <SexEdSearchBar /> */}
 
         <div>
           <h4 className='User-Wants-Title'>Wants</h4>
@@ -103,28 +85,32 @@ const UserProfileDetails = (props) => {
               <input 
                 type="text" 
                 value={`${singleUser.wants[1]}`} 
-                onChange={(e) => {updateUserList(e.target.value, "wants", 1)}}            
+                onChange={(e) => {updateUserList(e.target.value, "wants", 1)}}
+                onBlur={() => {fireUpdate()}}                        
               />
             </li>
             <li className='User-Wants-Details'>
               <input 
                 type="text" 
                 value={`${singleUser.wants[2]}`} 
-                onChange={(e) => {updateUserList(e.target.value, "wants", 2)}}            
+                onChange={(e) => {updateUserList(e.target.value, "wants", 2)}}
+                onBlur={() => {fireUpdate()}}             
               />
             </li>
             <li className='User-Wants-Details'>          
               <input 
                 type="text" 
                 value={`${singleUser.wants[3]}`} 
-                onChange={(e) => {updateUserList(e.target.value, "wants", 3)}}            
+                onChange={(e) => {updateUserList(e.target.value, "wants", 3)}}  
+                onBlur={() => {fireUpdate()}}           
               />
             </li>
             <li className='User-Wants-Details'>            
               <input 
                 type="text" 
                 value={`${singleUser.wants[4]}`} 
-                onChange={(e) => {updateUserList(e.target.value, "wants", 4)}}            
+                onChange={(e) => {updateUserList(e.target.value, "wants", 4)}}   
+                onBlur={() => {fireUpdate()}}          
               />
             </li>
           </ol>
@@ -137,28 +123,32 @@ const UserProfileDetails = (props) => {
               <input 
                 type="text" 
                 value={`${singleUser.dont_wants[1]}`} 
-                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 1)}}            
+                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 1)}}
+                onBlur={() => {fireUpdate()}}             
               />
             </li>
             <li className='User-DontWants-Details'>
               <input 
                 type="text" 
                 value={`${singleUser.dont_wants[2]}`} 
-                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 2)}}            
+                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 2)}}  
+                onBlur={() => {fireUpdate()}}           
               />
             </li>
             <li className='User-DontWants-Details'>          
               <input 
                 type="text" 
                 value={`${singleUser.dont_wants[3]}`} 
-                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 3)}}            
+                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 3)}}  
+                onBlur={() => {fireUpdate()}}           
               />
             </li>
             <li className='User-DontWants-Details'>          
               <input 
                 type="text" 
                 value={`${singleUser.dont_wants[4]}`} 
-                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 4)}}            
+                onChange={(e) => {updateUserList(e.target.value, "dont_wants", 4)}}    
+                onBlur={() => {fireUpdate()}}         
               />
             </li>
           </ol>

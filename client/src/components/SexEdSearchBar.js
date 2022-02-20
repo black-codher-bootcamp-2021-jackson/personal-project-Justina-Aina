@@ -20,7 +20,7 @@ const SexEdSearchBar = () => {
         getSexEdResult();
     }, [term]);
     
-    console.log(sexEdResult);
+    // console.log(sexEdResult);
 
     return (
         <div>
