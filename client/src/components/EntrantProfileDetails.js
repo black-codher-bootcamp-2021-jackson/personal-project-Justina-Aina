@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import {Link} from 'react-router-dom';
 import { getAllUserData } from "../services/journeyService";
+import NewEntry from './NewEntry';
 //import '../App.css';
 // import SunSign from "./SunSign.js";
 
-const EntrantProfileDetails = (props) => {
-  // const { users } = props;
-  const [entries, setEntries] = useState(null);
-
+const EntrantProfileDetails = () => {
+  const [entries, setEntries] = useState(null);  
 
   ////////////////////////////////////////////////////
   //Calls the getUser function from the api
@@ -21,8 +21,6 @@ const EntrantProfileDetails = (props) => {
     }
     getUsers();
   });
-
-
 
   const renderUser = (singleUser) => {
     console.log(singleUser);
@@ -67,12 +65,25 @@ const EntrantProfileDetails = (props) => {
   return (
     <section>
       {entries && entries.length > 0 ? (
-        entries.map((singleUser) => renderUser(singleUser))
+        <div>
+          <React.Fragment>
+            <Link to="/new-entry"> New Entry </Link>
+            <Link to="/user"> Back To User</Link>
+          </React.Fragment>
+          {entries.map((singleUser) => renderUser(singleUser))}
+        </div>          
       ) : (
-        <p>No user found</p>
+        <div>
+          <p>No user found</p>
+          <React.Fragment>
+            <Link to="/user"> Back To User</Link>
+          </React.Fragment>
+          <NewEntry />
+        </div>
       )}
     </section>
   );
+  
 
 }
 

@@ -5,44 +5,27 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import UserProfileDetails from "./components/UserProfileDetails";
 import EntrantProfileDetails from "./components/EntrantProfileDetails";
+import NewEntry from "./components/NewEntry";
 
 function App() {
-  
-  
-  
-  // console.log(`this is the APP ${entries}`);
-
-  // // Calls the getUser function from the api
-  //   const getUsers = async () => {
-  //     // existing function body
-  //     if (!users || !entries ) {
-  //       const response = await getAllUserData();
-  //       //console.log(response);
-  //       setUsers(response);  
-  //       setEntries(response[0].entries);
-  //     }
-  //   };
-    
-  //   useEffect(() => {
-  //     getUsers();
-  //   });
-
-
-////////////////////////////////////////////////////
-  //Calls the getUser function from the api
   
 
   return (
     <BrowserRouter>
       <Routes>
         <Route 
-          exact path="/" 
+          exact path="/user" 
           element={<UserProfileDetails/>}        
         />
         <Route 
           exact path="/entries"
-          element={<EntrantProfileDetails/>}
+          element={<EntrantProfileDetails/>}          
         />
+        <Route 
+          exact path="/new-entry"
+          element={<NewEntry/>}          
+        />
+        
       </Routes>
     </BrowserRouter>
   );

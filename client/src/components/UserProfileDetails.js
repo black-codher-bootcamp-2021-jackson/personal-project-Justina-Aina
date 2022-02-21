@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import {Link} from 'react-router-dom';
 // import '../App.css';
 import SunSign from "./SunSign.js";
 // import SexEdSearchBar from './SexEdSearchBar.js';
@@ -7,7 +8,6 @@ import { getAllUserData, updateUser } from "../services/journeyService";
 const UserProfileDetails = (props) => {
   const [users, setUsers] = useState(null);
   const [user, setUser] = useState(null);
-  const [hasSubmitted, setSubmitted] = useState(false);
   //const { users, setUsers } = props;
   // console.log('Type of users', typeof users);
   // console.log('Props', props);
@@ -28,7 +28,7 @@ const UserProfileDetails = (props) => {
     getUsers();
   });
 
-  ///////////////////////////
+  /////////////////////////////////////////////////////////////
   //function to update info in already created users and entrants
   const updateUserList = ( value, list, listNumber) => {
     console.log(`set user function ${value}, ${list}, ${listNumber}`);
@@ -43,24 +43,8 @@ const UserProfileDetails = (props) => {
     updateUser(user._id, user);
     //console.log(`user updated ${user}`);
   };
+  /////////////////////////////////////////////////////////////
 
-//   const handleBlur = (e) => {    
-//     e.preventDefault();    
-//     setSubmitted(true); 
-//     console.log({hasSubmitted}) 
-
-//     // setTimeout(() => {
-//     //     setSubmitted(false)
-//     // }, 3000);
-// }
-
-  //////
-  //possibly use useEffect to push updated infor to mongo. 
-  //I want the saving to happen separate to the change input
-  // save after every 5 seconds timer and if no changes the push update to mongo
-
-  // a function to listen for selection (onFocus), then listen for deselection (onBlur). 
-  // if the value has changed onBlur, push update to mongo
 
   const renderUser = (singleUser) => {
     // console.log(singleUser);
@@ -77,6 +61,10 @@ const UserProfileDetails = (props) => {
         </div>
           
         {/* <SexEdSearchBar /> */}
+
+        <React.Fragment>
+          <Link to="/entries"> Entries </Link>
+        </React.Fragment>
 
         <div>
           <h4 className='User-Wants-Title'>Wants</h4>
