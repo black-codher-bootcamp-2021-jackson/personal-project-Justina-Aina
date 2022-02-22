@@ -17,7 +17,7 @@ function App() {
         <Route 
           exact path="/user" 
           element={
-            <NavBar/>,
+            // <NavBar/>,
             <UserProfileDetails/>
           }        
         />

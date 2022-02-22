@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 function NavBar() {
  
     return(
-        <header>
+        <div>
             <div>
                 <React.Fragment>
                 <Link to="/user">My Profile</Link>
@@ -16,7 +16,7 @@ function NavBar() {
                <p>This Is Your...</p>
                 <h1>JOURNEY</h1> 
             </div>
-        </header>
+        </div>
     )
 };
 
