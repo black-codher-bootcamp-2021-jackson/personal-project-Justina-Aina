@@ -75,9 +75,6 @@ const EntrantProfileDetails = () => {
       ) : (
         <div>
           <p>No user found</p>
-          <React.Fragment>
-            <Link to="/user"> Back To User</Link>
-          </React.Fragment>
           <NewEntry />
         </div>
       )}

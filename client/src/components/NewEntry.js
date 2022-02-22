@@ -17,7 +17,7 @@ const NewEntry = () => {
     }
 
     return(
-        <div id="entry-form-container">      
+        <section id="entry-form-container">      
             <h3>New Entries</h3> 
             <React.Fragment>
                 <Link to="/user"> Back To User</Link>
@@ -56,7 +56,17 @@ const NewEntry = () => {
                     />
 
                     <label>Likes:</label>               
-                    <ol className='Entrant-likes-Detail-box'>
+                    {/* <ol className='Entrant-likes-Detail-box'>
+                        <li className='Entrant-likes-Details'>
+                            <text 
+                                type="text" 
+                                value={newUser.likes[0]}
+                                onChange={(e) => {
+                                    setNewUser.likes[0](e.target.value);
+                                    setSubmitted(false)
+                                }}                                                     
+                            />
+                        </li>
                         <li className='Entrant-likes-Details'>
                             <input 
                                 type="text" 
@@ -87,50 +97,14 @@ const NewEntry = () => {
                                 }}                                                     
                             />
                         </li>
-                        <li className='Entrant-likes-Details'>
-                            <input 
-                                type="text" 
-                                value={newUser.likes[4]}
-                                onChange={(e) => {
-                                    setNewUser.likes[4](e.target.value);
-                                    setSubmitted(false)
-                                }}                                                     
-                            />
-                        </li>
-                    </ol>
+                    </ol>               */}
                     
-                    
-                    
-                    {/* CONTINUE CODING HERE */}
-                    {/* <label>
-                        Location:
-                        <input type="text" value={location} onChange={(e) => {setLocation (e.target.value); setSubmitted(false) }}/>
-                    </label>         */}
+
                 </>
                 <button type="submit">submit</button>   
             </form>      
-                
-            {/* <ul>
-                <h3>Results</h3>           
-                <li>Name: {name}</li>
-                <li>Age: {age}</li>
-                <li>Location: {location}</li> 
-                <p>{hasSubmitted === true && "Thanks for submitting your filled-out form"}</p>                          
-            </ul>  */}
             
-        </div>
-
-    //     <div id='Entrant-Details' key={singleUser._id} >
-
-    //     <h3 className='Entrant-Name'>{`${singleUser.first_name} ${singleUser.last_name}`}</h3>
-        
-    //     <div className='Entrant-Birthday'>
-    //       <p>{`${singleUser.birthday}`}</p>
-    //       {/* <SunSign birthday={singleUser.birthday}/> */}
-    //     </div>
-          
-
-    
+        </section>
 
     //     <div>
     //       <h4 className='Entrant-Dislikes-Title'>Dislikes</h4>

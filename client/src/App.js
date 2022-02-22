@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// import { getAllUserData } from "./services/journeyService";
 
+// import { getAllUserData } from "./services/journeyService";
+import NavBar from "./components/NavBar";
 import UserProfileDetails from "./components/UserProfileDetails";
 import EntrantProfileDetails from "./components/EntrantProfileDetails";
 import NewEntry from "./components/NewEntry";
@@ -15,7 +16,10 @@ function App() {
       <Routes>
         <Route 
           exact path="/user" 
-          element={<UserProfileDetails/>}        
+          element={
+            <NavBar/>,
+            <UserProfileDetails/>
+          }        
         />
         <Route 
           exact path="/entries"
