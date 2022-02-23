@@ -1,0 +1,24 @@
+.sunsignContainer{
+    height: 220px;
+    width: 220px;
+    border-radius: 15px;
+    padding: 5px 20px;
+    display: grid;    
+    grid-template-rows: auto auto auto;
+    row-gap: 1px;
+    place-items: center;
+    place-content: center;
+    background-color: #23222233;
+}
+
+.userSectionTitle{
+    margin: 5px 0px;
+}
+
+.appText {
+    font-size: 14px;   
+}
+
+@media only screen and (max-width: 426px) {
+
+}
