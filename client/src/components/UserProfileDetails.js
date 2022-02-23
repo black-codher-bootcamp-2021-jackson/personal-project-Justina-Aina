@@ -63,8 +63,8 @@ const UserProfileDetails = (props) => {
           
         {/* <SexEdSearchBar /> */}
 
-        <React.Fragment>
-          <Link to="/entries"> Entries </Link>
+        <React.Fragment >
+          <Link to="/entries" className={styles.Link}> Entries </Link>
         </React.Fragment>
 
         <div>
