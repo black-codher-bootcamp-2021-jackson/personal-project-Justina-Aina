@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from "../styles/SunSign.module.css"
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { sunSignMessage } from "../services/journeyService";
 
@@ -121,10 +122,10 @@ const SunSign = (props) => {
     };
 
     return ( 
-        <div className='sunsign-container'>
-            <h4>Sun Sign: {sign}</h4> 
-            <p>Birthday: {birthdayDay} {birthdayMonth}</p>
-            <p>{dailyHoroscope}</p>
+        <div className={styles.sunsignContainer}>
+            <h4 className={styles.userSectionTitle}>Sun Sign: {sign}</h4> 
+            <p className={styles.appText}>Birthday: {birthdayDay} {birthdayMonth}</p>
+            <p className={styles.appText}>{dailyHoroscope}</p>
         </div> 
     )
 }

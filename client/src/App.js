@@ -15,9 +15,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route 
-          exact path="/user" 
+          exact path={"/", "/user"} 
           element={
-            // <NavBar/>,
+            <NavBar/>,
             <UserProfileDetails/>
           }        
         />

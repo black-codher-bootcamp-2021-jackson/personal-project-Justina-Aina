@@ -52,11 +52,11 @@ const UserProfileDetails = (props) => {
 
     return (
       
-      <div id='UserDetails' key={singleUser._id} >
+      <div id={styles.UserDetails} key={singleUser._id} >
 
-        <h3 className='User-Name'>{`${singleUser.first_name} ${singleUser.last_name}`}</h3>
+        <h3 className={styles.UserName}>{`${singleUser.first_name} ${singleUser.last_name}`}</h3>
         
-        <div className='User-Birthday'>
+        <div className={styles.UserSunSign}>
           {/* <p>{`${singleUser.birthday}`}</p> */}
           <SunSign birthday={singleUser.birthday}/>
         </div>

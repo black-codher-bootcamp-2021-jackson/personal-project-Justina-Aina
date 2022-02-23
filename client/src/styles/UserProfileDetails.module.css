@@ -1,4 +1,19 @@
 #UserDetails{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    row-gap: 15px;
+    place-items: center;
+    place-content: center;
+}
+
+.UserName{
+    justify-self: center;
+}
+
+.UserSunSign{
+    justify-self: center;
+}
+
+@media only screen and (max-width: 426px) {
+
 }
