@@ -16,7 +16,7 @@ const EntrantProfileDetails = () => {
         const response = await getAllUserData();
         console.log(response);
         //console.log(response);        
-        setEntries(response[0].entries);
+        setEntries(response[1].entries);
       }
     }
     getUsers();

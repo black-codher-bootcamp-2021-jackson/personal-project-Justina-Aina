@@ -10,7 +10,7 @@ const NewEntry = () => {
     const [newUser, setNewUser] = useState('');
     const [hasSubmitted, setSubmitted] = useState(false);
 
-    const loggedInUser = {_id:"62055cfa2c89cf49b4dbe8f1"};
+    const loggedInUser = {_id:"62055cfa2c89cf49b4dbe8f0"};
 
     useEffect(() => {
         async function getUsers() {
@@ -38,7 +38,13 @@ const NewEntry = () => {
         console.log(`set user function ${value}, ${list}, ${listNumber}`);
         setEntries({...entries, [list]: {...entries[list], [listNumber]: value}});
         // setUser(...user, user.entries);
+        // ...user, [list]: {...user[list]: value}
     }; 
+
+    const updateEntrantNonLists = (value, list) => {
+        console.log(`updateEntrantNonLists ${value}, ${list}`);
+        setEntries({...entries, [list]: value});
+    };
 
     const fireUpdate = () =>{
         const target = document.activeElement;
@@ -68,7 +74,7 @@ const NewEntry = () => {
                             placeholder="first name"
                             onChange={(e) => {                                 
                                 // NEED TO AMEND HOW FIRST NAME PUSHES TO LIST
-                                updateEntrantLists(e.target.value, "first_name");
+                                updateEntrantNonLists(e.target.value, "first_name");
                                 setSubmitted(false);
                             }}
                             onBlur={() => {fireUpdate()}}                   
@@ -78,7 +84,7 @@ const NewEntry = () => {
                             placeholder="last name"
                             onChange={(e) => {                                 
                                 // NEED TO AMEND HOW LAST NAME PUSHES TO LIST
-                                updateEntrantLists(e.target.value, "last_name");
+                                updateEntrantNonLists(e.target.value, "last_name");
                                 setSubmitted(false);
                             }}
                             onBlur={() => {fireUpdate()}} 
@@ -90,91 +96,109 @@ const NewEntry = () => {
                     <div>
                         <label>Birthday:</label>
                         <input 
-                            type="date"                              
-                            onChange={(e) => {
-                                setNewUser.birthday(e.target.value); 
-                                setSubmitted(false) 
+                            type="date"                             
+                            onChange={(e) => {                              
+                                updateEntrantNonLists(e.target.value, "birthday");
+                                setSubmitted(false);
                             }}
+                            onBlur={() => {fireUpdate()}} 
                         />
                     </div>
                     <div>
                         <label>Likes:</label>               
                         <ol className='Entrant-likes-Detail-box'>
+
+                            <li className='Entrant-likes-Details'>
+                                <input 
+                                type="text"                   
+                                onChange={(e) => {                              
+                                    updateEntrantLists(e.target.value, "likes", 1);
+                                    setSubmitted(false);
+                                }}
+                                onBlur={() => {fireUpdate()}}                   
+                                /> 
+                            </li>
+                            
                             <li className='Entrant-likes-Details'>
                                 <input 
                                     type="text"                                 
-                                    onChange={(e) => {
-                                        setNewUser.likes[1](e.target.value);
-                                        setSubmitted(false)
-                                    }}                                                     
+                                    onChange={(e) => {                              
+                                        updateEntrantLists(e.target.value, "likes", 2);
+                                        setSubmitted(false);
+                                    }}
+                                    onBlur={() => {fireUpdate()}}                                                      
                                 />
                             </li>
+
                             <li className='Entrant-likes-Details'>
                                 <input 
                                     type="text"                                 
-                                    onChange={(e) => {
-                                        setNewUser.likes[2](e.target.value);
-                                        setSubmitted(false)
-                                    }}                                                     
+                                    onChange={(e) => {                              
+                                        updateEntrantLists(e.target.value, "likes", 3);
+                                        setSubmitted(false);
+                                    }}
+                                    onBlur={() => {fireUpdate()}}                                                       
                                 />
                             </li>
-                            <li className='Entrant-likes-Details'>
-                                <input 
-                                    type="text"                                 
-                                    onChange={(e) => {
-                                        setNewUser.likes[3](e.target.value);
-                                        setSubmitted(false)
-                                    }}                                                     
-                                />
-                            </li>
+
                             <li className='Entrant-likes-Details'>
                                 <input 
                                     type="text" 
-                                    onChange={(e) => {
-                                        setNewUser.likes[4](e.target.value);
-                                        setSubmitted(false)
-                                    }}                                                     
+                                    onChange={(e) => {                              
+                                        updateEntrantLists(e.target.value, "likes", 4);
+                                        setSubmitted(false);
+                                    }}
+                                    onBlur={() => {fireUpdate()}}                                                       
                                 />
                             </li>
                         </ol>              
                     </div>
+
                     <div>
                         <label>Dislikes:</label>
                         <ol className='Entrant-Dislikes-Detail-box'>
+
                             <li className='Entrant-Dislikes-Details'>
                                 <input 
                                     type="text"                                 
-                                    onChange={(e) => {
-                                        setNewUser.dont_likes[1](e.target.value);
-                                        setSubmitted(false)
-                                    }}                                                     
-                                />
-                            </li>                            
-                            <li className='Entrant-Dislikes-Details'>
-                                <input 
-                                    type="text"                                 
-                                    onChange={(e) => {
-                                        setNewUser.dont_likes[2](e.target.value);
-                                        setSubmitted(false)
-                                    }}                                                     
+                                    onChange={(e) => {                              
+                                        updateEntrantLists(e.target.value, "dont_likes", 1);
+                                        setSubmitted(false);
+                                    }}
+                                    onBlur={() => {fireUpdate()}}                                                       
                                 />
                             </li>
+
                             <li className='Entrant-Dislikes-Details'>
                                 <input 
                                     type="text"                                 
-                                    onChange={(e) => {
-                                        setNewUser.dont_likes[2](e.target.value);
-                                        setSubmitted(false)
-                                    }}                                                     
+                                    onChange={(e) => {                              
+                                        updateEntrantLists(e.target.value, "dont_likes", 2);
+                                        setSubmitted(false);
+                                    }}
+                                    onBlur={() => {fireUpdate()}}                                                     
                                 />
                             </li>
+
                             <li className='Entrant-Dislikes-Details'>
                                 <input 
                                     type="text"                                 
-                                    onChange={(e) => {
-                                        setNewUser.dont_likes[2](e.target.value);
-                                        setSubmitted(false)
-                                    }}                                                     
+                                    onChange={(e) => {                              
+                                        updateEntrantLists(e.target.value, "dont_likes", 3);
+                                        setSubmitted(false);
+                                    }}
+                                    onBlur={() => {fireUpdate()}}                                                     
+                                />
+                            </li>
+
+                            <li className='Entrant-Dislikes-Details'>
+                                <input 
+                                    type="text"                                 
+                                    onChange={(e) => {                              
+                                        updateEntrantLists(e.target.value, "dont_likes", 4);
+                                        setSubmitted(false);
+                                    }}
+                                    onBlur={() => {fireUpdate()}}                                                     
                                 />
                             </li>
                             

@@ -13,7 +13,7 @@ const UserProfileDetails = (props) => {
   // console.log('Type of users', typeof users);
   // console.log('Props', props);
   
-  const loggedInUser = {_id:"62055cfa2c89cf49b4dbe8f1"};
+  const loggedInUser = {_id:"62055cfa2c89cf49b4dbe8f0"};
   ////////////////////////////////////////////////////
   //Calls the getUser function from the app
   useEffect(() => {
