@@ -37,8 +37,6 @@ const NewEntry = () => {
     const updateEntrantLists = ( value, list, listNumber) => {
         console.log(`set user function ${value}, ${list}, ${listNumber}`);
         setEntries({...entries, [list]: {...entries[list], [listNumber]: value}});
-        // setUser(...user, user.entries);
-        // ...user, [list]: {...user[list]: value}
     }; 
 
     const updateEntrantNonLists = (value, list) => {
