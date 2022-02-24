@@ -19,6 +19,12 @@ const createUser = async (newUser) => {
   return response.data || [];
 };
 
+const createEntrant = async (id, body) => {
+  const response = await axios.post(`/api/user-data/${id}`, body);
+
+  return response.data || [];
+};
+
 const updateUser = async (id, body) => {
   const response = await axios.put(`/api/user-data/${id}`, body);
 
@@ -54,5 +60,6 @@ export {
   updateUser, 
   deleteUser, 
   sunSignMessage, 
-  externalSearchFunction 
+  externalSearchFunction,
+  createEntrant 
 };
