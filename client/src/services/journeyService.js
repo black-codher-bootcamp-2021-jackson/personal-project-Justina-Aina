@@ -13,17 +13,19 @@ const getSingleUser = async (id) => {
   return response.data || [];
 };
 
-const createUser = async (newUser) => {
-  const response = await axios.post(`/api/user-data`, newUser);
+const createUser = async (body) => {
+  const response = await axios.post(`/api/user-data`, body);
 
   return response.data || [];
 };
 
-const createEntrant = async (id, body) => {
-  const response = await axios.post(`/api/user-data/${id}`, body);
 
-  return response.data || [];
-};
+// NOT RIGHT. I WANT THIS TO ADD TO THE ENTRANTS OF EACH USER
+// const createEntrant = async (id, body) => {
+//   const response = await axios.post(`/api/user-data/${id}/entries/`, body);
+
+//   return response.data || [];
+// };
 
 const updateUser = async (id, body) => {
   const response = await axios.put(`/api/user-data/${id}`, body);
@@ -60,6 +62,5 @@ export {
   updateUser, 
   deleteUser, 
   sunSignMessage, 
-  externalSearchFunction,
-  createEntrant 
+  externalSearchFunction
 };

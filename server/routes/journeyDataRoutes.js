@@ -24,6 +24,19 @@ const journeyDataRoutes = (app) => {
         }, userData);
     });
 
+
+    // NOT RIGHT. I WANT THIS TO ADD TO THE ENTRANTS OF EACH USER
+    // app.post(`/api/user-data/:id/entries/`, async (req, res) => {
+    //     const id = req.params;
+        
+    //     const user = await UserData.findOneAndUpdate(id)
+    //     const userData = await UserData.create(req.body);
+        
+    //     return res.status(201).send({
+    //        error: false           
+    //      }, userData);
+    //  });
+
     app.put(`/api/user-data/:id`, async (req, res) => {
         const id  = req.params;
 
@@ -31,19 +44,6 @@ const journeyDataRoutes = (app) => {
 
         return res.status(202).send(userData);
     });
-    // app.put(`/api/user-data/:id`, async (req, res) => {
-    //     const { id } = req.params;
-    //     const refreshedUser = req.body;
-
-    //     for( let i=0; i < users.length; i++){
-    //         let user = users[i]
-    //         if (user.id === id) {
-    //             users[i] = refreshedUser;
-    //         }
-    //     }
-
-    //     res.send(`user is refreshed`);        
-    // });
 
     app.delete(`/api/user-data/:id`, async (req, res) => {
         const id =req.params;

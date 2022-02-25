@@ -48,7 +48,7 @@ const NewEntry = () => {
         const target = document.activeElement;
         console.log(`on blur ${target}`);
         console.log(entries);
-        createEntrant(user._id, entries);
+        // createEntrant(user._id, entries);
     };
     
 
